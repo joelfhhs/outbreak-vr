@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk1m6vf8c12th"]
+
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="1_77sq7"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_12dw7"]
+
+[node name="Root" type="Node3D"]
+
+[node name="StartXR" parent="." instance=ExtResource("1_77sq7")]
+
+[node name="XROrigin" type="XROrigin3D" parent="."]
+
+[node name="Camera" type="XRCamera3D" parent="XROrigin"]
+
+[node name="VRCommonShaderCache" parent="XROrigin/Camera" instance=ExtResource("2_12dw7")]
+
+[node name="LeftController" type="XRController3D" parent="XROrigin"]
+tracker = &"left_hand"
+
+[node name="RightController" type="XRController3D" parent="XROrigin"]
+tracker = &"right_hand"
